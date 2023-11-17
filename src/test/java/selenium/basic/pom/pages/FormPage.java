@@ -1,4 +1,4 @@
-package pages;
+package selenium.basic.pom.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.List;
 import java.util.Random;
 
-public class FormPage extends BasePage{
+public class FormPage extends BasePage {
     private final Random random = new Random();
     @FindBy(id = "inputFirstName3")
     private WebElement firstNameInput;
@@ -39,6 +39,7 @@ public class FormPage extends BasePage{
         super(driver);
         PageFactory.initElements(driver, this);
     }
+
     public FormPage go() {
         driver.get(BASE_URL + "/form.php");
         return this;
@@ -62,10 +63,12 @@ public class FormPage extends BasePage{
         selectCommand.selectByValue("wait-commands");
         return this;
     }
+
     public FormPage chooseFileToUpload() {
         chooseFileButton.sendKeys("C:\\Users\\mtyszkiewicz\\IdeaProjects\\Selenium_Basic_POM\\target\\filesToUpload\\search-bug.jpg");
         return this;
     }
+
     public FormPage submitForm() {
         driver.findElement(By.cssSelector(".btn.btn-primary")).click();
         return this;

@@ -1,13 +1,11 @@
-package selenium.basic.pom;
+package selenium.basic.pom.pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.DefaultElementLocatorFactory;
-import selenium.basic.pom.pages.BasePage;
 
-public class TableRowComponent{
+public class TableRowComponent {
     @FindBy(css = "th")
     private WebElement rank;
     @FindBy(xpath = "./td[1]")
@@ -18,6 +16,7 @@ public class TableRowComponent{
     private WebElement state;
     @FindBy(xpath = "./td[4]")
     private WebElement height;
+
     public TableRowComponent(WebElement parent) {
         PageFactory.initElements(new DefaultElementLocatorFactory(parent), this);
     }
@@ -25,7 +24,8 @@ public class TableRowComponent{
     public int getHeight() {
         return Integer.parseInt(height.getText());
     }
-    public String getPeak(){
+
+    public String getPeak() {
         return peak.getText();
     }
 
